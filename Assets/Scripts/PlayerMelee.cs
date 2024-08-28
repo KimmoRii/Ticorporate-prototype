@@ -8,11 +8,12 @@ public class PlayerMelee : MonoBehaviour
     public int meleeDamage;
     [SerializeField] private float meleeCooldown;
     private float timeUntilMelee;
+    public Collider2D weaponCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        weaponCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -22,7 +23,6 @@ public class PlayerMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
-                Debug.Log("swing arm");
                 animator.SetTrigger("Attack");
                 timeUntilMelee = meleeCooldown;
             }
@@ -31,5 +31,15 @@ public class PlayerMelee : MonoBehaviour
         {
             timeUntilMelee -= Time.deltaTime;
         }
+    }
+
+    private void StrikeBegan()
+    {
+        weaponCollider.enabled = true;
+    }
+
+    private void StrikeEnded()
+    {
+        weaponCollider.enabled = false;
     }
 }
