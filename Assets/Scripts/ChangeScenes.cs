@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScenes : MonoBehaviour
 {
+    private bool canChangeScene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +16,30 @@ public class ChangeScenes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.W) && canChangeScene)
+        {
+            ChangeScene(0);
+        }
     }
 
-    private void ChangeScene()
+    public void ChangeScene(int sceneNumber)
     {
-        SceneManager.LoadScene("ManagementMenuScene");
+        SceneManager.LoadScene(sceneNumber);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canChangeScene = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canChangeScene = false;
+        }
     }
 }

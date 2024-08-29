@@ -5,12 +5,26 @@ using TMPro;
 
 public class ResourceManager : MonoBehaviour
 {
+    public static ResourceManager resourceManager;
     public int gatheredResources;
-    [SerializeField] TMP_Text gatheredResourcesText;
+    public int totalResources;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        gatheredResourcesText.text = "Resources: " + gatheredResources;
+        if (resourceManager == null)
+        {
+            resourceManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (resourceManager != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void StoreResources()
+    {
+        totalResources += gatheredResources;
+        gatheredResources = 0;
     }
 }

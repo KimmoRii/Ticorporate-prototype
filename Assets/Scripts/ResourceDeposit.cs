@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static ResourceManager;
+
 public class ResourceDeposit : MonoBehaviour
 {
     [SerializeField] int resourceValue;
     [SerializeField] int durability;
-    public ResourceManager resourceManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
