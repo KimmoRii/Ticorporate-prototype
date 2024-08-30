@@ -4,7 +4,7 @@ using UnityEngine;
 
 using static ResourceManager;
 
-public class StoreResources : MonoBehaviour
+public class ResourceStorage : MonoBehaviour
 {
     public void PutResourcesToStorage()
     {
