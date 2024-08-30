@@ -633,6 +633,7 @@ GameObject:
   - component: {fileID: 964155497}
   - component: {fileID: 964155496}
   - component: {fileID: 964155495}
+  - component: {fileID: 964155498}
   m_Layer: 5
   m_Name: StoreResourcesButton
   m_TagString: Untagged
@@ -704,9 +705,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2082084731}
-        m_TargetAssemblyTypeName: ResourceManager, Assembly-CSharp
-        m_MethodName: StoreResources
+      - m_Target: {fileID: 964155498}
+        m_TargetAssemblyTypeName: StoreResources, Assembly-CSharp
+        m_MethodName: PutResourcesToStorage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -754,6 +755,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964155493}
   m_CullTransparentMesh: 1
+--- !u!114 &964155498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964155493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6ebe5dca5d3b045b7a2f4312069fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028977670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,17 +1315,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069020083}
   m_CullTransparentMesh: 1
---- !u!114 &2082084731 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6228033330667075454, guid: 2af232889e730274e933b30b5a26dab9, type: 3}
-  m_PrefabInstance: {fileID: 2142049982}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08606791f673cdd4db9372d9597b446d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2142049982
 PrefabInstance:
   m_ObjectHideFlags: 0

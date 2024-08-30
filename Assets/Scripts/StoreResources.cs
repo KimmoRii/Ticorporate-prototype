@@ -6,16 +6,9 @@ using static ResourceManager;
 
 public class StoreResources : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public void PutResourcesToStorage()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        resourceManager.totalResources += resourceManager.gatheredResources;
+        resourceManager.gatheredResources = 0;
     }
 }

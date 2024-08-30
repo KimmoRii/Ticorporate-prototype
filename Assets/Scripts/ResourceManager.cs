@@ -21,10 +21,4 @@ public class ResourceManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void StoreResources()
-    {
-        totalResources += gatheredResources;
-        gatheredResources = 0;
-    }
 }
