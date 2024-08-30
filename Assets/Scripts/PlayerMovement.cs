@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static PlayerStamina;
-
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] int moveSpeed;
@@ -14,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     bool facingRight = true;
     float moveDirection;
     public bool isGrounded;
+
+    public PlayerStamina playerStamina;
 
     // Start is called before the first frame update
     void Start()

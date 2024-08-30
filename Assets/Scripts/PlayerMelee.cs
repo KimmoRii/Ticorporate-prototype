@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static PlayerStamina;
-
 public class PlayerMelee : MonoBehaviour
 {
     [SerializeField] private Animator animator;
@@ -12,6 +10,8 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private float meleeCooldown;
     private float timeUntilMelee;
     public Collider2D weaponCollider;
+
+    public PlayerStamina playerStamina;
 
     // Start is called before the first frame update
     void Start()

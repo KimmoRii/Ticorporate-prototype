@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
 {
-    public static PlayerStamina playerStamina;
-
     [SerializeField] float maxStamina;
     public float currentStamina;
     [SerializeField] int staminaRegenMultiplier;
