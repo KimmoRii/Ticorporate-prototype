@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static PlayerStamina;
+
 public class PlayerMovement : MonoBehaviour
 {
-    public int moveSpeed;
-    public int jumpForce;
+    [SerializeField] int moveSpeed;
+    [SerializeField] int jumpForce;
+    [SerializeField] int jumpStaminaCost;
 
     Rigidbody2D rb;
     bool facingRight = true;
@@ -50,6 +53,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (playerStamina.currentStamina < jumpStaminaCost)
+        {
+            return;
+        }
+
+        playerStamina.LoseStamina(jumpStaminaCost);
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 

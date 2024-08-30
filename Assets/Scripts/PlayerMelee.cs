@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static PlayerStamina;
+
 public class PlayerMelee : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     public int meleeDamage;
+    [SerializeField] int meleeStaminaCost;
     [SerializeField] private float meleeCooldown;
     private float timeUntilMelee;
     public Collider2D weaponCollider;
@@ -23,8 +26,7 @@ public class PlayerMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
-                animator.SetTrigger("Attack");
-                timeUntilMelee = meleeCooldown;
+                Attack();
             }
         }
         else
@@ -33,12 +35,24 @@ public class PlayerMelee : MonoBehaviour
         }
     }
 
-    private void StrikeBegan()
+    private void Attack()
+    {
+        if (playerStamina.currentStamina < meleeStaminaCost)
+        {
+            return;
+        }
+
+        animator.SetTrigger("Attack");
+        timeUntilMelee = meleeCooldown;
+        playerStamina.LoseStamina(meleeStaminaCost);
+    }
+
+    private void StrikeBeganEvent()
     {
         weaponCollider.enabled = true;
     }
 
-    private void StrikeEnded()
+    private void StrikeEndedEvent()
     {
         weaponCollider.enabled = false;
     }
