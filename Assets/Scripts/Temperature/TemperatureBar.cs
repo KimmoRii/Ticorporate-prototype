@@ -7,15 +7,8 @@ public class TemperatureBar : MonoBehaviour
 {
     public Slider slider;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetTemperature(float Temperature)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        slider.value = Temperature;
     }
 }
